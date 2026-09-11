@@ -1,5 +1,9 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 
+/**
+ * useInView — triggers when element enters the viewport.
+ * Returns [ref, isVisible].
+ */
 export function useInView(threshold = 0.15) {
   const ref = useRef(null);
   const [visible, setVisible] = useState(false);
@@ -16,6 +20,10 @@ export function useInView(threshold = 0.15) {
   return [ref, visible];
 }
 
+/**
+ * useTilt — adds a 3D perspective tilt effect to an element on mouse move.
+ * Returns { ref, onMouseMove, onMouseLeave } to spread onto the target element.
+ */
 export function useTilt(maxDeg = 8) {
   const ref = useRef(null);
   const handleMove = useCallback((e) => {
